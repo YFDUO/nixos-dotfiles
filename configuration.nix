@@ -22,6 +22,8 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.loader.systemd-boot.configurationLimit = 15;
+
   networking.hostName = "nixos-btw"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -48,9 +50,15 @@ in
     enable = true;
     windowManager.qtile.enable = true;
     displayManager.sessionCommands = ''
-      xwallpaper --zoom ~/walls/street.jpg
+      xwallpaper --zoom ~/walls/nixoswall.jpg
       xset r rate 200 35 &
     '';
+
+    xkb = {
+      layout = "us,ru";
+      variant = ",winkeys";
+      options = "grp:win_space_toggle";
+    };
   };
 
   services.picom = {
@@ -69,10 +77,10 @@ in
   # Enable sound.
   # services.pulseaudio.enable = true;
   # OR
-  # services.pipewire = {
-  #   enable = true;
-  #   pulse.enable = true;
-  # };
+   services.pipewire = {
+     enable = true;
+     pulse.enable = true;
+   };
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
@@ -102,7 +110,6 @@ in
     gimp3-with-plugins
     yazi
     python314
-    gccgo15
     rustup
     docker_28
     k8sgpt
@@ -110,6 +117,8 @@ in
     xwallpaper
     pcmanfm
     rofi
+    flameshot
+    zoom-us
   ];
 
   fonts.packages = with pkgs; [
@@ -162,4 +171,3 @@ in
   system.stateVersion = "25.05"; # Did you read the comment? Yes :3
 
 }
-
