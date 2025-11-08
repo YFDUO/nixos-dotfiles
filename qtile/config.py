@@ -81,6 +81,9 @@ keys = [
     Key([mod], "f", lazy.spawn("firefox")),
     Key([mod], "p", lazy.spawn("pcmanfm")),
     Key([mod], "t", lazy.spawn("rofi -show drun")),
+    key([], "F12", lazy.spawn("wpctl set-volume @default_audio_sink@ 5%+")),
+    key([], "F11", lazy.spawn("wpctl set-volume @default_audio_sink@ 5%-")),
+    key([], "F10", lazy.spawn("wpctl set-mute @default_audio_sink@ toggle")),
 ]
 
 # Add key bindings to switch VTs in Wayland.
