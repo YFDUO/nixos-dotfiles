@@ -119,6 +119,7 @@ in
     rofi
     flameshot
     zoom-us
+    pavucontrol
   ];
 
   fonts.packages = with pkgs; [
