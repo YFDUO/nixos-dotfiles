@@ -120,6 +120,7 @@ in
     flameshot
     zoom-us
     pavucontrol
+    libreoffice
   ];
 
   fonts.packages = with pkgs; [
